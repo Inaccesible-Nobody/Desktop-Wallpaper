@@ -1,55 +1,44 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#453326">
-  <title>The Listening Room</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d1c"><title>Five Sides</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="room" id="room" aria-label="The Listening Room desktop wallpaper">
-    <div class="artwork" aria-hidden="true"></div>
-    <div class="lamp-light" id="lampLight" aria-hidden="true"></div>
-    <div class="grain" aria-hidden="true"></div>
+<main class="desktop" id="desktop">
+  <div class="grain"></div><div class="ambient" id="ambient"></div>
+  <section class="record-wall" aria-label="Vinyl collection">
+    <button class="record record-a" data-record="0" aria-label="Play record one"><span class="disc"><i class="label label-a"><b>01</b></i><i class="hole"></i><i class="shine"></i></span></button>
+    <button class="record record-b" data-record="1" aria-label="Play record two"><span class="disc"><i class="label label-b"><b>02</b></i><i class="hole"></i><i class="shine"></i></span></button>
+    <button class="record record-c" data-record="2" aria-label="Play record three"><span class="disc"><i class="label label-c"><b>03</b></i><i class="hole"></i><i class="shine"></i></span></button>
+    <button class="record record-d" data-record="3" aria-label="Play record four"><span class="disc"><i class="label label-d"><b>04</b></i><i class="hole"></i><i class="shine"></i></span></button>
+    <button class="record record-e" data-record="4" aria-label="Play record five"><span class="disc"><i class="label label-e"><b>05</b></i><i class="hole"></i><i class="shine"></i></span></button>
+  </section>
 
-    <!-- Interactive hit areas are positioned over the artwork. -->
-    <button class="hotspot cassette c1" data-playlist="0" aria-label="Play cassette one" title="Cassette 1"></button>
-    <button class="hotspot cassette c2" data-playlist="1" aria-label="Play cassette two" title="Cassette 2"></button>
-    <button class="hotspot cassette c3" data-playlist="2" aria-label="Play cassette three" title="Cassette 3"></button>
-    <button class="hotspot cassette c4" data-playlist="3" aria-label="Play cassette four" title="Cassette 4"></button>
-    <button class="hotspot cassette c5" data-playlist="4" aria-label="Play cassette five" title="Cassette 5"></button>
-    <button class="hotspot cassette c6" data-playlist="5" aria-label="Play cassette six" title="Cassette 6"></button>
-
-    <button class="on-air-hit" id="onAirHit" aria-label="ON AIR indicator. Click to stop playback" title="ON AIR"></button>
-    <button class="lamp-hit" id="lampToggle" aria-label="Toggle lamp" title="Toggle lamp lighting"></button>
-    <button class="boombox-hit" id="boomboxHit" aria-label="Toggle player panel" title="Open or close music player"></button>
-
-    <section class="clock" aria-label="Fuzzy clock">
-      <div id="fuzzyTime">it's a little past nine</div>
-      <div id="dateLine" class="date-line"></div>
+  <aside class="right-column">
+    <section class="clock-block">
+      <div class="fuzzy-time" id="fuzzyTime">It's a little past eleven</div>
     </section>
 
-    <section class="todo-wrap" aria-label="Editable reminder note">
-      <textarea id="todo" aria-label="To-do list" placeholder=""></textarea>
+    <section class="todo-paper" aria-label="To-do list">
+      <div class="paper-tape"></div>
+      <div class="paper-heading">a few things to remember</div>
+      <textarea id="todo" spellcheck="false" aria-label="Your to-do list" placeholder="its just me and my silly little to-do list against the world"></textarea>
     </section>
 
-    <section class="calendar-live" aria-label="Calendar">
-      <span id="month"></span><strong id="day"></strong><span id="weekday"></span>
+    <section class="calendar" aria-label="Calendar">
+      <div class="calendar-top"><span id="month">NOVEMBER</span><span id="year">2026</span></div>
+      <div class="calendar-day" id="day">16</div>
+      <div class="calendar-bottom" id="weekday">MONDAY</div>
+      <div class="calendar-rule"></div>
+      <!-- <div class="calendar-small" id="calendarSmall">A DAY AT A TIME</div> -->
     </section>
+  </aside>
 
-    <div class="folder-guide" title="Place your desktop folders over the empty shelf"></div>
-
-    <section class="player" id="player" hidden aria-label="Spotify player">
-      <button id="closePlayer" class="close-player" aria-label="Close player">×</button>
-      <div class="player-heading"><span class="tiny-led"></span><span id="playerTitle">NOW PLAYING</span></div>
-      <iframe id="spotifyFrame" title="Spotify playlist" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      <button id="stopPlayback" class="stop-button">STOP / EJECT</button>
-    </section>
-
-    <div class="hint" id="hint" aria-live="polite"></div>
-  </main>
-  <script src="playlists.js"></script>
-  <script src="app.js"></script>
-</body>
-</html>
+  <div class="spotify-host" id="spotifyHost" aria-hidden="true" inert></div>
+  <div class="layout-status" id="layoutStatus" aria-live="polite" aria-hidden="true">LAYOUT UNLOCKED · ALT+R TO LOCK · ALT+Q TO RESET</div>
+</main>
+<script src="playlists.js"></script><script src="app.js"></script>
+</body></html>
