@@ -1,165 +1,55 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#a9c6ae" />
-  <title>Record Room — Desktop</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#453326">
+  <title>The Listening Room</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="room" id="room">
-    <div class="ambient-glow"></div>
-    <div class="wall-grain"></div>
+  <main class="room" id="room" aria-label="The Listening Room desktop wallpaper">
+    <div class="artwork" aria-hidden="true"></div>
+    <div class="lamp-light" id="lampLight" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
 
-    <header class="room-heading">
-      <div class="eyebrow">YOUR LITTLE CORNER OF THE WORLD</div>
-      <h1>the record room<span>✳</span></h1>
-      <p>A place for music, small rituals, and unfinished thoughts.</p>
-    </header>
+    <!-- Interactive hit areas are positioned over the artwork. -->
+    <button class="hotspot cassette c1" data-playlist="0" aria-label="Play cassette one" title="Cassette 1"></button>
+    <button class="hotspot cassette c2" data-playlist="1" aria-label="Play cassette two" title="Cassette 2"></button>
+    <button class="hotspot cassette c3" data-playlist="2" aria-label="Play cassette three" title="Cassette 3"></button>
+    <button class="hotspot cassette c4" data-playlist="3" aria-label="Play cassette four" title="Cassette 4"></button>
+    <button class="hotspot cassette c5" data-playlist="4" aria-label="Play cassette five" title="Cassette 5"></button>
+    <button class="hotspot cassette c6" data-playlist="5" aria-label="Play cassette six" title="Cassette 6"></button>
 
-    <section class="record-wall" aria-label="Vinyl collection">
-      <div class="section-label"><span>01 / THE COLLECTION</span><span>DRAG A RECORD TO THE PLAYER</span></div>
-      <div class="shelf-line"></div>
-      <div class="records" id="records">
-        <!-- Vinyl records are rendered by app.js -->
-      </div>
-      <button class="add-playlist" id="addPlaylistBtn" type="button"><span>＋</span> add a record</button>
+    <button class="on-air-hit" id="onAirHit" aria-label="ON AIR indicator. Click to stop playback" title="ON AIR"></button>
+    <button class="lamp-hit" id="lampToggle" aria-label="Toggle lamp" title="Toggle lamp lighting"></button>
+    <button class="boombox-hit" id="boomboxHit" aria-label="Toggle player panel" title="Open or close music player"></button>
+
+    <section class="clock" aria-label="Fuzzy clock">
+      <div id="fuzzyTime">it's a little past nine</div>
+      <div id="dateLine" class="date-line"></div>
     </section>
 
-    <section class="player-zone" aria-label="Turntable">
-      <div class="player-caption">
-        <span class="section-label">02 / ON THE TURNTABLE</span>
-        <span class="tiny-note" id="playerStatus">waiting for a record</span>
-      </div>
-      <div class="turntable" id="turntable">
-        <div class="turntable-body">
-          <div class="turntable-brand">SONORA <span>STEREO</span></div>
-          <div class="platter-shadow"></div>
-          <div class="platter" id="platter">
-            <div class="vinyl-disc" id="activeVinyl" aria-label="Drop a record here">
-              <div class="groove groove-one"></div>
-              <div class="groove groove-two"></div>
-              <div class="groove groove-three"></div>
-              <div class="groove groove-four"></div>
-              <div class="record-label" id="activeLabel"><span>DROP<br>RECORD</span></div>
-              <div class="spindle"></div>
-            </div>
-          </div>
-          <div class="tonearm-pivot">
-            <div class="tonearm" id="tonearm"><div class="headshell"><div class="needle"></div></div></div>
-          </div>
-          <div class="control-knob knob-left"><span></span></div>
-          <div class="control-knob knob-right"><span></span></div>
-          <div class="speed-switch"><span></span><small>33⅓</small></div>
-          <div class="player-light"></div>
-          <div class="player-foot foot-one"></div><div class="player-foot foot-two"></div>
-        </div>
-        <div class="player-shadow"></div>
-      </div>
-      <div class="now-playing">
-        <div class="now-playing-mark"><span class="equalizer"><i></i><i></i><i></i></span></div>
-        <div class="now-playing-copy">
-          <span class="eyebrow">CURRENTLY SPINNING</span>
-          <strong id="nowPlayingTitle">Nothing just yet</strong>
-          <small id="nowPlayingSubtitle">Choose a record from the wall above.</small>
-        </div>
-        <button class="text-button" id="ejectBtn" type="button" disabled>eject ↗</button>
-      </div>
-      <div class="spotify-frame-wrap" id="spotifyWrap" hidden>
-        <div class="spotify-frame-heading"><span>LISTENING WINDOW</span><button id="hideSpotifyBtn" class="icon-button" aria-label="Hide player">×</button></div>
-        <iframe id="spotifyFrame" title="Spotify playlist player" src="" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
+    <section class="todo-wrap" aria-label="Editable reminder note">
+      <textarea id="todo" aria-label="To-do list" placeholder=""></textarea>
     </section>
 
-    <section class="side-world" aria-label="Desk objects">
-      <article class="object clock-object">
-        <div class="object-label">A LITTLE TIME</div>
-        <div class="flip-clock">
-          <div class="clock-digit" id="clockHours">00</div><div class="clock-colon">:</div><div class="clock-digit" id="clockMinutes">00</div>
-          <span class="clock-period" id="clockPeriod">PM</span>
-        </div>
-        <div class="clock-date" id="clockDate">MONDAY · 26 OCTOBER</div>
-      </article>
-
-      <article class="object lamp-object">
-        <div class="lamp-glow" id="lampGlow"></div>
-        <div class="lamp-shade"></div><div class="lamp-neck"></div><div class="lamp-base"></div>
-        <button class="lamp-switch" id="lampToggle" type="button" aria-label="Toggle lamp"><span></span></button>
-        <div class="object-label">MOOD LIGHT <span id="lampState">OFF</span></div>
-      </article>
-
-      <article class="object note-object">
-        <div class="note-clip"></div>
-        <div class="note-topline"><span>FIELD NOTE / <b>01</b></span><button id="editNoteBtn" class="tiny-edit" type="button">EDIT</button></div>
-        <textarea id="reminderText" aria-label="Reminder note" maxlength="220">Remember to take a proper break.
-Drink water. Stretch your shoulders.
-Come back to the thing slowly.</textarea>
-        <div class="note-footer"><span>PINNED FOR TODAY</span><span>✳</span></div>
-      </article>
-
-      <article class="object polaroid-object">
-        <button class="polaroid-photo" id="photoUploadBtn" type="button" aria-label="Change Polaroid photo">
-          <img id="polaroidImage" alt="Your Polaroid photo" hidden />
-          <span id="photoPlaceholder"><span class="photo-sun">☼</span><b>ADD A MEMORY</b><small>click to change photo</small></span>
-        </button>
-        <input type="file" id="photoInput" accept="image/*" hidden />
-        <input type="text" id="photoCaption" class="photo-caption" value="somewhere, sometime" maxlength="48" aria-label="Polaroid caption" />
-        <span class="tape"></span>
-      </article>
-
-      <article class="object calendar-object">
-        <div class="calendar-ring"></div>
-        <div class="calendar-top"><span>DAY BOOK</span><span id="calendarMonth">OCT</span></div>
-        <div class="calendar-day" id="calendarDay">26</div>
-        <div class="calendar-weekday" id="calendarWeekday">MONDAY</div>
-        <div class="calendar-bottom">ONE DAY AT A TIME</div>
-      </article>
-
-      <article class="object coffee-object">
-        <div class="coffee-heading"><span>COFFEE LOG</span><span id="coffeeDate">TODAY</span></div>
-        <div class="cup-stack" id="cupStack" aria-label="Today's coffee cups"></div>
-        <div class="coffee-count"><strong id="coffeeCount">0</strong><span>cups today</span></div>
-        <div class="coffee-actions"><button id="addCoffeeBtn" type="button">＋ had a coffee</button><button id="undoCoffeeBtn" type="button" aria-label="Undo coffee" title="Undo last cup">↶</button></div>
-        <div class="coffee-note">a tiny record of the ritual</div>
-      </article>
-
-      <article class="object cactus-stand" aria-label="Space reserved for virtual cactus">
-        <div class="cactus-sign">A SUNNY SPOT</div>
-        <div class="stand-top"></div><div class="stand-leg leg-left"></div><div class="stand-leg leg-right"></div><div class="stand-shelf"></div>
-        <div class="cactus-placeholder"><span>🌵</span><small>YOUR CACTUS<br>GOES HERE</small></div>
-      </article>
+    <section class="calendar-live" aria-label="Calendar">
+      <span id="month"></span><strong id="day"></strong><span id="weekday"></span>
     </section>
 
-    <div class="dragonfly" id="dragonfly" aria-hidden="true">
-      <span class="wing wing-left"></span><span class="wing wing-right"></span><span class="fly-body"></span><span class="fly-tail"></span>
-    </div>
+    <div class="folder-guide" title="Place your desktop folders over the empty shelf"></div>
 
-    <footer class="room-footer">
-      <span>MADE FOR SLOW MORNINGS & LATE RECORDS</span>
-      <button id="tidyBtn" type="button">RESET THE ROOM ↺</button>
-      <span class="footer-weather">MINT AIR / SOFT LIGHT</span>
-    </footer>
+    <section class="player" id="player" hidden aria-label="Spotify player">
+      <button id="closePlayer" class="close-player" aria-label="Close player">×</button>
+      <div class="player-heading"><span class="tiny-led"></span><span id="playerTitle">NOW PLAYING</span></div>
+      <iframe id="spotifyFrame" title="Spotify playlist" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <button id="stopPlayback" class="stop-button">STOP / EJECT</button>
+    </section>
 
-    <dialog id="playlistDialog" class="playlist-dialog">
-      <form method="dialog" id="playlistForm">
-        <div class="dialog-top"><span>NEW RECORD</span><button class="icon-button" value="cancel" aria-label="Close">×</button></div>
-        <h2>Add to the collection</h2>
-        <p>Give a playlist a name and paste its Spotify playlist URL. You can also add a record without a link and connect it later.</p>
-        <label for="playlistName">Record / playlist name</label>
-        <input id="playlistName" name="playlistName" placeholder="e.g. songs for slow Sundays" maxlength="42" required />
-        <label for="playlistUrl">Spotify playlist URL <span>(optional)</span></label>
-        <input id="playlistUrl" name="playlistUrl" type="url" placeholder="https://open.spotify.com/playlist/..." />
-        <label for="playlistMood">Label colour</label>
-        <select id="playlistMood" name="playlistMood">
-          <option value="sage">Sage green</option><option value="clay">Soft clay</option><option value="butter">Butter yellow</option><option value="blue">Dusty blue</option><option value="rose">Muted rose</option>
-        </select>
-        <div class="dialog-actions"><button class="secondary-button" value="cancel">cancel</button><button class="primary-button" id="savePlaylistBtn" value="default">add record ↗</button></div>
-      </form>
-    </dialog>
-
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="hint" id="hint" aria-live="polite"></div>
   </main>
+  <script src="playlists.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
