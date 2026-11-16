@@ -34,7 +34,7 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--ink);
 .record.active{z-index:10;transform:scale(1.075) rotate(-2deg)!important;filter:drop-shadow(0 32px 38px rgba(0,0,0,.62)) brightness(1.13)}
 .record.active .disc{animation:record-spin 7s linear infinite}
 @keyframes record-spin{to{transform:rotate(360deg)}}
-.right-column{position:absolute;z-index:5;right:2vw;top:2vh;width:min(26vw,390px);height:86vh;display:flex;flex-direction:column;align-items:stretch}
+.right-column{position:absolute;z-index:5;right:2vw;top:2vh;width:min(26vw,380px);height:86vh;display:flex;flex-direction:column;align-items:stretch}
 .clock-block{text-align:right;margin:0 0 4.8vh}
 .clock-kicker{font:9px 'DM Mono',monospace;letter-spacing:.23em;color:#78849a;margin-bottom:12px}
 .fuzzy-time{font:clamp(23px,2.5vw,39px)/1.2 'Playfair Display',Georgia,serif;color:#e7e2d8;letter-spacing:-.025em;white-space:nowrap}
