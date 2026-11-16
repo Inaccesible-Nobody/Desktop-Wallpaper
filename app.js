@@ -4,6 +4,7 @@ const layoutKey='fiveSidesLayout';
 const layoutItems=[
  ...records.map((element,index)=>({key:`record-${index}`,element,handle:element})),
  ...[
+  ['clock',document.querySelector('.clock-block')],
   ['todo',document.querySelector('.todo-paper')],
   ['calendar',document.querySelector('.calendar')]
  ].map(([key,element])=>({key,element,handle:element})),

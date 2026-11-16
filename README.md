@@ -6,7 +6,7 @@ A minimal midnight-blue desktop wallpaper inspired by the supplied reference: fi
 1. Open this folder in VS Code.
 2. Edit `playlists.js` and paste one Spotify playlist URL into each of the five slots.
 3. Run `index.html` with VS Code Live Server.
-4. Press `Alt+R` to unlock layout editing, then drag the records, note, calendar, or Spotify player's `MOVE` tab. The clock stays fixed. Press `Alt+R` again to lock the layout. Positions are saved in this browser. While unlocked, press `Alt+Q` to reset everything to its default position and lock the layout.
+4. Press `Alt+R` to unlock layout editing, then drag the records, clock, note, calendar, or Spotify player's `MOVE` tab. Press `Alt+R` again to lock the layout. Positions are saved in this browser. While unlocked, press `Alt+Q` to reset everything to its default position and lock the layout.
 5. Click a record. It enlarges and becomes the active side; the Spotify player appears at the lower-left. Press `Shift+K` to hide or show it without unloading the player. If focus is inside the Spotify player, click outside it first before using the shortcut.
 6. Click the active record again to stop/unload it. The to-do note is an editable multiline list: press Enter for the next ruled line. Its contents are saved in local browser storage.
 

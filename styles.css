@@ -6,9 +6,9 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--ink);
 .ambient{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .8s;background:radial-gradient(ellipse at 35% 42%,rgba(255,157,99,.13),transparent 43%)}
 .record-wall{position:absolute;z-index:3;left:-5vw;top:45%;width:65vw;height:110vh;transform:translateY(-50%)}
 .record{position:absolute;display:block;width:clamp(210px,22vw,500px);aspect-ratio:1;border:0;padding:0;background:transparent;cursor:pointer;transform-origin:center;transition:transform .55s cubic-bezier(.2,.8,.2,1),filter .55s;filter:drop-shadow(0 24px 26px rgba(0,0,0,.36));-webkit-tap-highlight-color:transparent}
-.record,.todo-paper,.calendar,.spotify-host{translate:var(--drag-x,0px) var(--drag-y,0px);touch-action:none;-webkit-user-select:none;user-select:none}
+.record,.clock-block,.todo-paper,.calendar,.spotify-host{translate:var(--drag-x,0px) var(--drag-y,0px);touch-action:none;-webkit-user-select:none;user-select:none}
 #todo{-webkit-user-select:text;user-select:text}
-.desktop.is-customizing .record,.desktop.is-customizing .todo-paper,.desktop.is-customizing .calendar{cursor:grab}
+.desktop.is-customizing .record,.desktop.is-customizing .clock-block,.desktop.is-customizing .todo-paper,.desktop.is-customizing .calendar{cursor:grab}
 .desktop.is-customizing .spotify-drag-handle{cursor:grab}
 .layout-status{position:fixed;z-index:35;top:18px;left:50%;transform:translateX(-50%);padding:8px 12px;border:1px solid rgba(232,225,209,.16);border-radius:3px;background:rgba(8,13,28,.76);color:rgba(232,225,209,.72);font:8px 'DM Mono',monospace;letter-spacing:.14em;pointer-events:none;opacity:0;transition:opacity .2s}
 .desktop.is-customizing .layout-status{opacity:1}
